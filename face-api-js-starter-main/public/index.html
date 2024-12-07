@@ -1,0 +1,61 @@
+<style>
+    /* Make the container, video, and canvas fill the viewport */
+    #container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Prevent scrollbars */
+   }
+    
+   video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the video covers the container area */
+    z-index: 1; /* Set video below canvas */
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* Set canvas above video */
+    pointer-events: none; /* Prevent canvas from blocking interactions */
+}
+
+#redirect-button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 3; /* Place the button above everything else */
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #redirect-button:hover {
+        background-color: #0056b3;
+    }
+</style>
+<canvas id="canvas"></canvas>
+<div id="container">
+    <video id="video-feed" height="560" width="720" autoplay></video>
+    <button id="redirect-button">Go to Next Page</button> <!-- Added Button -->
+
+</div>
+
+<script src="./face-api.min.js"></script>
+<script src="./scripts.js"></script>
